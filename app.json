@@ -1,0 +1,12 @@
+{
+  "name": "Notes RESTful API",
+  "description": "",
+  "keywords": [
+    "productivity",
+    "notes",
+    "crud"
+  ],
+  "repository": "",
+  "logo": "https://small-sharp-tool.com/logo.svg",
+  "image": "heroku/notes"
+}

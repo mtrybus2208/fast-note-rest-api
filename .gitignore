@@ -11,6 +11,7 @@
 *.sublime-workspace
 
 # IDE - VSCode
+/.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -25,6 +26,9 @@
 npm-debug.log
 testem.log
 /typings
+
+# environment-variables
+.env
 
 
 # System Files

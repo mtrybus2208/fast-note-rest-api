@@ -7,6 +7,9 @@ module.exports = {
             "version": 7,
             "ignores": []
         }],
-        "no-console" : 0
+        "no-console" : 0,
+        "no-restricted-syntax": 0,
+        "no-underscore-dangle": 0,
+        "arrow-body-style": 0
     }
 }
