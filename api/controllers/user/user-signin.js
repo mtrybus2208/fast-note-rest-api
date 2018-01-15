@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken');
 
 const User = require('./../../models/user');
 
+const jwtKey = process.env.JWT_KEY || 'secret';
+
 module.exports = (req, res, next) => {
   User.findOne({ email: req.body.email })
     .populate('notes')
@@ -20,7 +22,7 @@ module.exports = (req, res, next) => {
             /* Auth successful */
             const token = jwt.sign(
               { email: user.email, userId: user._id },
-              process.env.JWT_KEY,
+              jwtKey,
               { expiresIn: 7200 }
             );
             return res.status(200).json({

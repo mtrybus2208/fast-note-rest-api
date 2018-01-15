@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken');
 
 const User = require('./../../models/user');
 
+const jwtKey = process.env.JWT_KEY || 'secret';
+
 module.exports = (req, res, next) => {
   bcrypt.hash(req.body.password, bcrypt.genSaltSync(10))
     .then((hash) => {
@@ -19,7 +21,7 @@ module.exports = (req, res, next) => {
       const { _id, email, notes } = user;
       const token = jwt.sign(
         { email: user.email, userId: user._id },
-        process.env.JWT_KEY,
+        jwtKey,
         { expiresIn: 7200 }
       );
       return res.status(201).json({

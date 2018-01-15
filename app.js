@@ -10,11 +10,13 @@ const userRoutes = require('./api/routes/user');
 
 if (process.env.NODE_ENV !== 'production') dotenv.load();
 
+
 const app = express();
+const db = process.env.DB || 'mongodb://localhost:27017/note-local';
+
 mongoose.Promise = Promise;
-/* local */
-// mongoose.connect('mongodb://localhost:27017/note-local');
-mongoose.connect(`mongodb://mtrybus:${process.env.MONGO_ATLAS_PW}@notes-api-shard-00-00-n7zxg.mongodb.net:27017,notes-api-shard-00-01-n7zxg.mongodb.net:27017,notes-api-shard-00-02-n7zxg.mongodb.net:27017/test?ssl=true&replicaSet=notes-api-shard-0&authSource=admin`);
+
+mongoose.connect(db);
 
 
 /* App Middleware */
